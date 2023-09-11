@@ -6,7 +6,7 @@
     headers: {
       "X-Api-Key": "{{ new_relic_api_key }}"
     }
-    #body: 'filter[host]={{ inventory_hostname }}'
+    body: 'filter[host]={{ inventory_hostname }}'
     status_code: [200]
     timeout: '{{ new_relic_api_timeout | int }}'
     validate_certs: no   # Add this line to skip SSL certificate validation
