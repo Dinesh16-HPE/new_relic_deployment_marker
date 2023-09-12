@@ -2,7 +2,7 @@
 - name: Get New Relic Application Id (using host name)
   uri:
     url: '{{ new_relic_api_base_url }}/applications.json'
-    validate_certs: false  # Add this line to skip SSL certificate validation
+    validate_certs: no  # Add this line to skip SSL certificate validation
     method: GET
     headers: {
       "X-Api-Key": "{{ new_relic_api_key }}"
@@ -21,7 +21,7 @@
   when: new_relic_applications.json.applications|length > 0
   uri:
     url: '{{ new_relic_api_base_url }}/applications/{{ new_relic_applications.json.applications[0].id }}/deployments.json'
-    validate_certs: false  # Add this line to skip SSL certificate validation
+    validate_certs: no  # Add this line to skip SSL certificate validation
     method: POST
     headers: {
       "X-Api-Key": "{{ new_relic_api_key }}"
